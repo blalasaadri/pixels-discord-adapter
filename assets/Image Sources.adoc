@@ -1,0 +1,11 @@
+= Image Sources
+
+All dice images were provided by the https://www.iconarchive.com/artist/pictogrammers.html[Pictogrammers Team] in their iconpack https://www.iconarchive.com/show/material-icons-by-pictogrammers.html[Material Design Icons] under the https://www.apache.org/licenses/LICENSE-2.0[Apache 2.0 license].
+
+d4:: https://www.iconarchive.com/show/material-icons-by-pictogrammers/dice-d4-outline-icon.html
+d6:: https://www.iconarchive.com/show/material-icons-by-pictogrammers/dice-d6-outline-icon.html
+pipped d6:: https://www.iconarchive.com/show/material-icons-by-pictogrammers/dice-6-outline-icon.html
+d8:: https://www.iconarchive.com/show/material-icons-by-pictogrammers/dice-d8-outline-icon.html
+d10:: https://www.iconarchive.com/show/material-icons-by-pictogrammers/dice-d10-outline-icon.html
+d12:: https://www.iconarchive.com/show/material-icons-by-pictogrammers/dice-d12-outline-icon.html
+d20:: https://www.iconarchive.com/show/material-icons-by-pictogrammers/dice-d20-outline-icon.html
