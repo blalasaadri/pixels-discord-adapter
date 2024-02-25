@@ -1,0 +1,46 @@
+= Pixels Discord integration
+
+This integration connects the JSON webcalls made by the Pixels app to Discord Web Hooks.
+It is more a proof of concept than anything else; using it requires some technical understanding and it is therefore not intended for general use (though it does work).
+
+To use it, first of all you'll need to check out the repository and have Node.js (and thereby NPM) installed.
+I tested the application with Node.js 20.9.0 and cannot guarantee that it will work with a different version.
+
+When you have the project checked out and Node.js installed, open a command line prompt (e.g. PowerShell on Windows, Term on macOS or whatever console emulator you run on Linux) and navigate into the directory in which the project is checked out.
+(If you don't know how to navigate to the directory, ask Google.)
+There, run the following command to install dependencies: `npm i`
+
+Next, you have to create a file called `.env` in the source directory.
+You can do so by copying the `template.env` file to a new `.env` file.
+In this file there are two values: `PORT` and `DISCORD_WEBHOOK_URL`.
+`PORT`:: This will be the local port that the service will run on. If you don't set it, it will default to port 3000.
+`DISCORD_WEBHOOK_URL`:: This will be the webhook URL for the channel to which you want the roll results published. The article https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks[Intro to Webhooks] in the Discord documentation explains how to create one of those, specifically follow the "Making a Webhook" section. Within Discord, you can call it whatever you want (though I recommend something that makes clear, that this is your Pixels dice integration). Then click on the "Copy Webhook URL" button in Discord and paste it into the new `.env` file. It should look something like this:
+[source]
+----
+PORT=3000
+DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/1234567890/abcdefghijklmnopqrstuvwxyz0123456789
+----
+
+Once all that is done, you can run the command `npm run dev` to start the application server.
+It will start listening on the computer you're running this application on.
+
+You will have to check, what the IP of your computer within your local network is.
+These IPs (assuming an IPv4) will usually look like one of these:
+
+- 10.XXX.XXX.XXX
+- 172.XX.XXX.XXX
+- 192.168.XXX.XXX
+
+(where the X's are replaced with digits, though sometimes fewer than in those examples.)
+
+In your Pixels App (on iOS or Android), create a profile which calls a webhook on certain events.
+Under "Send request to URL", enter an address that is made up in the following way:
+[source]
+----
+http://<your local ip>:<your port>/pixels
+----
+Here, the part `<your local ip>` is replaced with the IP address you looked up earlier and `<your port>` is either the value you set for `PORT` in the `.env` file or `3000` if you didn't set anything.
+
+Save and upload this profile to your Pixels die and start rolling.
+
+NOTE: The forwarding will only work as long as your phone is active. If the screen turns off, in many cases it will turn inactive after a while and will no longer forward the rolls.
